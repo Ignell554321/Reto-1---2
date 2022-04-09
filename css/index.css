@@ -1,126 +1,183 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap");
 
-:root {
-  --primary-theme-color: crimson;
-  --secondary-theme-color: darkred;
-  --text-color: #fff;
-  --highlight-color: gold;
-  --button-color: transparent;
-  --inverse-theme-color: #fff;
-  --inverse-text-color: crimson;
-  --shadow-color: hsla(0, 0%, 75%, 0.875);
-  --padding-container: 0 2rem;
-  scroll-behavior: smooth;
+:root{ /*Para englobar a todo*/
+
+    --primary-theme-color:#20232a;
+    --secondary-theme-color: #282c34;
+    --text-color: #fff;
+    --shadow-color: #8888;
+    --secondary-shadow-color: #21242c80;
+    --button-color: #61dafb;
+    --button-color-active: #fff;
+    --button-text-color: #000;
+    --padding-section: 2rem 0;
+    --padding-container: 0 2rem;
+    --primary-highlight: #61dafb;
+    --secondary-highlight: #ffd700;
+    --border-radius: 0.5rem;
+    --all-transitions: all 0.25s;
+    --max-width-container: 1024px;
 }
 
 @keyframes translate-m-100y-o {
-  from {
-    transform: translateY(-100vh);
-  }
-}
-
-@keyframes scale-0-o {
-  0% {
-    transform: scale(0);
-  }
-}
-
-.nav__menu-list,
-.cover-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.body {
-    font-family: 'Noto Sans', sans-serif;
+    from {
+      transform: translateY(-100vh);
+    }
   }
   
-  .header {
+  @keyframes scale-0-o {
+    0% {
+      transform: scale(0);
+    }
+  }
+
+.body{
+    background-color: var(--secondary-theme-color);
+    color: var(text-color);
+    font-family: 'Noto Sans', sans-serif;
+    margin: 0;
+    
+
+}   
+
+.header{
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-  }
-  
-  .nav {
+    background-color: var(--shadow-color);
+}
+.header-nav{
+    padding: 0.5em 0;
+}
+.header-nav__container{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 4rem;
-    padding: 0 2rem;
-    transition: all 0.5s;
-  }
-  
-  .nav__logo-container {
+    padding: var(--padding-container);
+    max-width: var(--max-width-container-); /*1024px;*/
+    margin: auto;
+    
+}
+
+.header-nav__link-logo-container{
+    border-radius: 50%;
+    height: 3rem;
     display: flex;
-    height: 2.5rem;
-    border-radius: 0.5rem;
-    box-shadow:
-      0 0 0.5rem var(--primary-theme-color),
-      0 0 1rem var(--primary-theme-color),
-      0 0 1.5rem var(--primary-theme-color),
-      0 0 2rem var(--primary-theme-color);
     overflow: hidden;
-  }
-  
-  .nav__logo {
+    transition: var(--all-transitions);
+}
+
+.header-nav__link-logo-container:hover{
+    box-shadow: 
+    0 0 0.25rem 0 var(--primary-highlight),
+    0 0 0.25rem 0 var(--primary-highlight); /*x , y, contorno, crecimiento de sombra*/
+}
+
+.header-nav__link-logo{
     height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
-  
-  .nav__menu-icon {
-    font-size: 1.5rem;
-    color: var(--text-color);
-    text-shadow:
-      0 0 0.5rem var(--primary-theme-color),
-      0 0 1rem var(--primary-theme-color),
-      0 0 1.5rem var(--primary-theme-color),
-      0 0 2rem var(--primary-theme-color);
+}
+
+.header-nav__menu-icon-label{
     cursor: pointer;
-  }
+    font-size: 2rem;
+    transition: var(--all-transitions);
+    color: white;
+}
+
+.header-nav__menu-icon-label:hover{
+    text-shadow: 
+    0 0 0.25rem  var(--primary-highlight),  /*puede tener varios chadows anidados*/
+    0 0 0.25rem  var(--primary-highlight);
+}
+
+.header-nav__menu-icon-checkbox{
   
-  .nav__menu-checkbox {
     display: none;
-  }
-  
-  .nav__menu-checkbox:checked+.nav__menu-list {
-    left: 0;
-  }
-  
-  .nav__menu-list {
-    gap: 2rem;
+
+    /*display: none; lo desaparece y tambien su espacio*/
+    /*visibility: hidden;  /*lo desaparece pero mantiene su espacio*/
+}
+
+/*se puede obtener el checked desde css*/
+/*El + es para seleccionar al hermano adyacente*/
+/*Por especificidad manda este selector*/
+.header-nav__menu-icon-checkbox:checked + .header-nav__menu-link-list{ 
+  /*background-color: #61dafb;*/
+  left: 0;
+}
+
+
+.header-nav__menu-link-list{
     position: fixed;
-    background-color: var(--shadow-color);
     top: 4rem;
     left: 100%;
-    width: 100%;
-    height: 100%;
+    width: 100%;  /*100vw;*/ 
+    height: calc(100% - 4rem); /*calc() para hacer un calculo*/
+    display: flex;
+    flex-direction: column;
+    align-items: center; /**para centrar en horizontal en columnas*/
+    justify-content: center; /* space-between; /*para centrar en vertical*/
+    gap:2rem;
     margin: 0;
     padding: 0;
-    transition: all 0.25s;
-  }
-  
-  .nav__menu-item {
     list-style: none;
-  }
-  
-  .nav__menu-link {
-    text-decoration: none;
+    transition: var(--all-transitions); /*se aplica  a la base*/
+    background-color: rgb(158, 154, 154);
+    
+}
+.header-nav__menu-link-item{
+    display: flex;
+}
+
+.header-nav__menu-link{
+    position: relative;
     color: var(--text-color);
-    text-shadow:
-      0 0 0.5rem var(--primary-theme-color),
-      0 0 1rem var(--primary-theme-color),
-      0 0 1.5rem var(--primary-theme-color),
-      0 0 2rem var(--primary-theme-color);
-    font-size: 1.5rem;
-    font-weight: 700;
-    transition: all 0.5s;
+    text-decoration: none;
+    font-weight: bold;
+    text-decoration: none;
+    transition: var(--all-transitions);
+}
+
+.header-nav__menu-link:hover,
+.header-nav__menu-link--active{
+    color: var(--primary-highlight);
+}
+  
+  .header-nav__menu-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -0.125rem;
+    width: 0;
+    height: 0.0625rem;
+    background-color: var(--secondary-highlight);
+    transition: var(--all-transitions);
   }
   
-  .nav__menu-link:hover {
-    color: var(--highlight-color);
+  .header-nav__menu-link:hover::after,
+  .header-nav__menu-link--active::after {
+    width: 100%;
   }
-  
+
+@media(min-width:954px){
+
+    /*.body{
+        background-color: var(--primary-highlight);
+    }*/
+    .header-nav__menu-icon-label{
+        display: none;
+    }
+
+    .header-nav__menu-link-list{
+        position: static;
+        width: auto;  /*100vw;*/ 
+        flex-direction: row;
+        gap:1.5rem;
+        list-style: none;
+        background-color: transparent;/*inherit; hereda eñ backgourn del padre*/
+        
+    }
+
+}
+
