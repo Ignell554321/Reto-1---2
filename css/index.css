@@ -33,7 +33,7 @@
   }
 
 .body{
-    background-color: var(--default-theme-color);
+    background-color: #F2F2F2;
     color: var(text-color);
     font-family: 'Noto Sans', sans-serif;
     margin: 0;
@@ -45,7 +45,7 @@
     left: 0;
     width: 100%;
     /* background-color: var(--shadow-color); */
-    background-color: transparent;
+    background-color: var(--primary-highlight);
 }
 .header-nav{
     padding: 0.5em 0;
@@ -175,11 +175,11 @@
 
 
 .cover{
-    margin-top: 4rem;
+    
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: 2rem;
     width: 100%;
     min-height: 100vh;
     background-image: url(/img/fondo_one_piece.webp);
@@ -197,16 +197,183 @@
     
 }
 
-.cover-container{
-    gap: 2rem;
-    padding: 0 2rem;
+.cover-container {
+  gap: 2rem;
+  padding: 0 2rem;
 }
 
 .cover__subtitle {
-    font-size: 1rem;
-    margin: 0;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.cover__title {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.cover__button-container {
+  display: flex;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.cover__button {
+  background-color: var(--primary-theme-color);
+  color: var(--text-color);
+  border: 0;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  box-shadow:
+    0 0 0.5rem var(--primary-theme-color),
+    0 0 1rem var(--primary-theme-color),
+    0 0 1.5rem var(--primary-theme-color),
+    0 0 2rem var(--primary-theme-color);
+  transition: all 0.5s;
+}
+
+.cover__button--active,
+.cover__button:hover {
+  background-color: var(--primary-highlight);
+  color: var(--primary-theme-color);
+  text-shadow: none;
+}
+
+.modal {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--shadow-color);
+  pointer-events: none;
+  text-align: center;
+  color: var(--inverse-text-color);
+  transition: all 0.25s;
+  --opacity: 0;
+  --pointer-events: none;
+
+  opacity: var(--opacity);
+  pointer-events: var(--pointer-events);
+}
+
+
+/*****************************************************FORMULARIOS*******************************************************************/
+
+.sectionFormulario{
+
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+
+.sectionFormulario-container {
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+
+.sectionFormulario__form {
+  text-align: center;
+  padding: 30px;
+  border: 1px solid #000;
+  border-radius: 20px;
+
   }
 
+  .sectionFormulario__form .input-info {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 15px;
+  }
+
+  .sectionFormulario__form input {
+  border: 1px solid #CCC;
+  padding: 5px;
+  }
+
+  .button {
+      display: inline-block;
+      border-radius: 4px;
+      background-color: #f4511e;
+      border-radius: 20px;
+      color: #FFFFFF;
+      text-align: center;
+      font-size: 28px;
+      padding: 20px;
+      width: 300px;
+      transition: all 0.5s;
+      cursor: pointer;
+      margin: 5px;
+      }
+      .button span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+      }
+      .button span:after {
+      content: '\00bb';  /* Entidades CSS. Para usar entidades HTML, use &#8594;*/
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+      }
+      .button:hover span {
+      padding-right: 25px;
+      }
+      .button:hover span:after {
+      opacity: 1;
+      right: 0;
+      }
+
+
+
+/*****************************************************PSEUDOCODIGO*******************************************************************/
+
+.sectionPseudocodigo{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url(/img/EncuestaConocimientoOnePiece.PNG);
+  background-position: center;
+  background-size: cover;
+  font-size: 5rem;
+  color: white;
+  text-align: center;
+  text-shadow:
+    0 0 0.5rem var(--primary-theme-color),
+    0 0 1rem var(--primary-theme-color),
+    0 0 1.5rem var(--primary-theme-color),
+    0 0 2rem var(--primary-theme-color);
+
+}
 
 
 /**************************************************************MAIN*******************************************************************/
